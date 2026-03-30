@@ -1,3 +1,9 @@
+# India's Financial Fraud Mitigation Framework
+[![View Research](https://img.shields.io)](https://yogeswarachary.github.io)
+
+> **Independent Research** by Modepalli Yogeswarachary  
+> *A comprehensive AI-driven approach to banking security and fraud prevention.*
+
 # India's Financial Fraud Mitigation Framework FY 2024-2025
 
 > **AI-Driven Multi-Layered Defense Architecture for Banking Security**  
