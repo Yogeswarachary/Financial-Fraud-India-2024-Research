@@ -1,15 +1,15 @@
-# 🔒 India's Financial Fraud Mitigation Framework
+# India's Financial Fraud Mitigation Framework FY 2024-2025
 
 > **AI-Driven Multi-Layered Defense Architecture for Banking Security**  
-> *Research by Modepalli Yogeswarachary | RBI Innovation Hub*
+> *Research by Modepalli Yogeswarachary | Independent Research*
 
 ---
 
-## 📊 Research Overview
+## Research Overview
 
 This repository contains comprehensive research analyzing India's **production-scale AI/ML fraud detection systems** implemented by the Reserve Bank of India during fiscal year 2024-2025. The study evaluates real-world deployment of machine learning models achieving **90-95% detection accuracy** and preventing losses exceeding **₹660 crore** within the first six months of operation.
 
-### 🎯 Key Highlights
+### Key Highlights
 
 | Metric | Value |
 |--------|-------|
@@ -21,49 +21,11 @@ This repository contains comprehensive research analyzing India's **production-s
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ### 1. Early Warning System (EWS) Block Diagram
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                    EARLY WARNING SYSTEM (EWS)                         │
-│              Multi-Stage Detection for Advance-Related Frauds           │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                         │
-│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐     │
-│  │  DATA SOURCES   │    │  INDICATOR      │    │  RISK SCORING   │     │
-│  │                 │───▶│  CLASSIFICATION │───▶│                 │     │
-│  │ • Bank Systems  │    │                 │    │ • Weighted      │     │
-│  │ • External DB   │    │ ┌───────────┐   │    │   Aggregation   │     │
-│  │ • Regulatory    │    │ │Financial  │   │    │ • Threshold     │     │
-│  │   Filings       │    │ │Indicators │   │    │   Analysis      │     │
-│  │ • News/Alerts   │    │ ├───────────┤   │    │                 │     │
-│  │                 │    │ │Operational│   │    └────────┬────────┘     │
-│  └─────────────────┘    │ │Indicators │   │             │              │
-│                         │ ├───────────┤   │             ▼              │
-│                         │ │External   │   │    ┌─────────────────┐    │
-│                         │ │Indicators │   │    │  FRAUD          │    │
-│                         │ └───────────┘   │    │  CLASSIFICATION │    │
-│                         └─────────────────┘    └─────────────────┘    │
-│                              │                                         │
-│                              ▼                                         │
-│                    ┌─────────────────┐                                  │
-│                    │  21-Day Natural │                                  │
-│                    │  Justice Framework│                                  │
-│                    │                 │                                  │
-│                    │ • Show Cause    │                                  │
-│                    │ • Response (21d)│                                  │
-│                    │ • Board Approval│                                  │
-│                    └────────┬────────┘                                  │
-│                             ▼                                          │
-│                    ┌─────────────────┐                                  │
-│                    │  CFR Reporting  │                                  │
-│                    │  & Debarment    │                                  │
-│                    └─────────────────┘                                  │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+<img src="./block%20diagrams/1.Early%20Warning%20Systems-EWS.png" alt="EWS Diagram" width="800">
 
 **Key Indicators Detected:**
 - **Financial**: Fund siphoning (>50% to related parties), round-tripping (>3 layers), high-value cash transactions (>40% of loan)
@@ -74,55 +36,7 @@ This repository contains comprehensive research analyzing India's **production-s
 
 ### 2. Financial Fraud Risk Indicator (FRI) Block Diagram
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│           FINANCIAL FRAUD RISK INDICATOR (FRI)                          │
-│              Real-Time Risk Scoring for Mobile Transactions             │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                         │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                      DATA INGESTION LAYER                        │   │
-│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐        │   │
-│  │  │  NCRP    │  │ Chakshu  │  │   Bank   │  │ Telecom  │        │   │
-│  │  │(Fraud    │  │(Citizen  │  │ Intel    │  │ Records  │        │   │
-│  │  │Complaints)│  │ Reports) │  │ Systems  │  │          │        │   │
-│  │  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘        │   │
-│  │       │             │             │             │              │   │
-│  └───────┴─────────────┴─────────────┴─────────────┴──────────────┘   │
-│                              │                                        │
-│                              ▼                                        │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                   PROCESSING LAYER (Real-Time)                   │   │
-│  │                                                                  │   │
-│  │   ┌─────────────┐    ┌─────────────┐    ┌─────────────┐         │   │
-│  │   │   Feature   │    │    ML       │    │   Risk      │         │   │
-│  │   │ Engineering│───▶│  Ensemble   │───▶│  Scoring    │         │   │
-│  │   │             │    │  (XGBoost,  │    │  (0-1000)   │         │   │
-│  │   │ • Velocity  │    │   RF, GNN)  │    │             │         │   │
-│  │   │ • Behavior  │    │             │    │             │         │   │
-│  │   │ • Network   │    │             │    │             │         │   │
-│  │   │ • Device    │    │             │    │             │         │   │
-│  │   └─────────────┘    └─────────────┘    └─────────────┘         │   │
-│  │                                          │                      │   │
-│  └──────────────────────────────────────────┼──────────────────────┘   │
-│                                             ▼                         │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                    OUTPUT CLASSIFICATION                       │   │
-│  │                                                                  │   │
-│  │   Score: 0-299      300-500        501-700        701-1000      │   │
-│  │   ┌─────────┐     ┌─────────┐    ┌─────────┐    ┌─────────┐    │   │
-│  │   │  CLEAN  │     │ MEDIUM  │    │  HIGH   │    │ VERY    │    │   │
-│  │   │         │────▶│  ALERT  │───▶│ VERIFY  │───▶│  HIGH   │    │   │
-│  │   │ Normal  │     │ Warning │    │OTP+Bio  │    │ BLOCK   │    │   │
-│  │   │Process  │     │         │    │         │    │         │    │   │
-│  │   └─────────┘     └─────────┘    └─────────┘    └─────────┘    │   │
-│  │                                                                  │   │
-│  └─────────────────────────────────────────────────────────────────┘   │
-│                                                                         │
-│  Performance: Real-time scoring | <100ms latency | 100% bank adoption   │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+<img src="./block%20diagrams/2.Financial%20Fraud%20Risk%20Indicator-FRI.png" alt="FRI Diagram" width="800">
 
 **Risk Score Breakdown:**
 | Risk Level | Score Range | Action |
@@ -134,90 +48,9 @@ This repository contains comprehensive research analyzing India's **production-s
 
 ---
 
-### 3. MuleHunter.AI Block Diagram
+### 3. Central Fraud Registry(CFR) Block Diagram
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                      MULEHUNTER.AI                                      │
-│           AI-Powered Money Mule Detection System                        │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                         │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                      DATA SOURCES                                │   │
-│  │  ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐     │   │
-│  │  │Transaction │ │  Device    │ │  Network   │ │  External  │     │   │
-│  │  │   Logs     │ │   Data     │ │   Graph    │ │   Intel    │     │   │
-│  │  └─────┬──────┘ └─────┬──────┘ └─────┬──────┘ └─────┬──────┘     │   │
-│  └────────┴──────────────┴──────────────┴──────────────┴─────────────┘   │
-│                                    │                                    │
-│                                    ▼                                    │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │              FEATURE ENGINEERING (19 Behavioral Indicators)      │   │
-│  │                                                                  │   │
-│  │   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │   │
-│  │   │   VELOCITY   │  │   PATTERN    │  │   NETWORK    │           │   │
-│  │   │              │  │              │  │              │           │   │
-│  │   │• Sudden      │  │• Round       │  │• Contact     │           │   │
-│  │   │  Activation │  │  Transactions│  │  Network    │           │   │
-│  │   │• High-Vel   │  │• Balance     │  │• Referral    │           │   │
-│  │   │  Layering   │  │  Pattern    │  │  Chain      │           │   │
-│  │   │• UPI Velocity│  │• ATM Cash   │  │              │           │   │
-│  │   └──────────────┘  └──────────────┘  └──────────────┘           │   │
-│  │                                                                  │   │
-│  │   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │   │
-│  │   │   ANOMALY    │  │   DEVICE     │  │   GEOGRAPHIC │           │   │
-│  │   │              │  │              │  │              │           │   │
-│  │   │• Temporal    │  │• Multiplicity│  │• KYC vs     │           │   │
-│  │   │  Anomaly    │  │• Foreign IP │  │  Transaction │           │   │
-│  │   │• Profile     │  │• Emulator   │  │• SIM Swap    │           │   │
-│  │   │  Mismatch   │  │  Detection   │  │              │           │   │
-│  │   └──────────────┘  └──────────────┘  └──────────────┘           │   │
-│  │                                                                  │   │
-│  └─────────────────────────────────────────────────────────────────┘   │
-│                                    │                                    │
-│                                    ▼                                    │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │              ML ENSEMBLE DETECTION ENGINE                        │   │
-│  │                                                                  │   │
-│  │    ┌────────────┐   ┌────────────┐   ┌────────────┐            │   │
-│  │    │  XGBoost   │   │   Random   │   │  Isolation │            │   │
-│  │    │ Classifier │   │   Forest   │   │   Forest   │            │   │
-│  │    │            │   │            │   │  (Anomaly) │            │   │
-│  │    │ Supervised │   │ Supervised │   │Unsupervised│            │   │
-│  │    │  Learning  │   │  Learning  │   │ Detection  │            │   │
-│  │    └──────┬─────┘   └──────┬─────┘   └──────┬─────┘            │   │
-│  │           │                │                │                 │   │
-│  │           └────────────────┴────────────────┘                 │   │
-│  │                           │                                    │   │
-│  │                           ▼                                    │   │
-│  │              ┌──────────────────────┐                          │   │
-│  │              │  Graph Neural Networks│                          │   │
-│  │              │                      │                          │   │
-│  │              │ • Network Analysis   │                          │   │
-│  │              │ • Mule Ring Mapping  │                          │   │
-│  │              │ • Cross-Bank Links   │                          │   │
-│  │              └──────────┬───────────┘                          │   │
-│  │                         │                                       │   │
-│  └─────────────────────────┼───────────────────────────────────────┘   │
-│                            │                                           │
-│                            ▼                                           │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                    ENSEMBLE VOTING & OUTPUT                     │   │
-│  │                                                                  │   │
-│  │    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐    │   │
-│  │    │ True Positive│    │ False Positive│   │  Detection   │    │   │
-│  │    │    Rate      │    │    Rate       │   │    Speed     │    │   │
-│  │    │              │    │               │   │              │    │   │
-│  │    │   90-95%     │    │    2-3%       │   │  <18 minutes │    │   │
-│  │    │  (vs 60-70%) │    │  (vs 15-20%) │   │ (vs days/weeks)│   │   │
-│  │    └──────────────┘    └──────────────┘    └──────────────┘    │   │
-│  │                                                                  │   │
-│  │    Detection Capability: 20,000+ accounts/month | 23+ banks    │   │
-│  │                                                                  │   │
-│  └─────────────────────────────────────────────────────────────────┘   │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+<img src="./block%20diagrams/3.Central%20Fraud%20Registry(CFR).png" alt="CFR Diagram" width="800">
 
 **Behavioral Indicators (19 Patterns):**
 
@@ -231,7 +64,7 @@ This repository contains comprehensive research analyzing India's **production-s
 
 ---
 
-## 🔬 Technical Stack
+## Technical Stack
 
 ### Machine Learning Models Deployed
 
@@ -255,7 +88,7 @@ Model Retraining: Continuous learning pipeline
 
 ---
 
-## 📈 Research Findings
+## Research Findings
 
 ### Fraud Statistics (FY 2024-2025)
 
@@ -280,9 +113,9 @@ Sector Distribution:
 
 ---
 
-## 🎯 Innovation Highlights
+## Innovation Highlights
 
-### FREE-AI Framework (7 Sutras)
+### Framework for Responsible and Ethical Enablement of AI (FREE-AI 2025) Framework (7 Sutras)
 
 Responsible AI deployment guidelines established in August 2025:
 
@@ -307,7 +140,7 @@ Future technology pipeline identified:
 
 ---
 
-## 🏛️ Regulatory Framework
+## Regulatory Framework
 
 ### RBI Master Directions (July 2024)
 
@@ -334,7 +167,7 @@ August 2025: FREE-AI Framework Release
 
 ---
 
-## 💼 Professional Contributions
+## Professional Contributions
 
 This research demonstrates expertise in:
 
@@ -356,7 +189,7 @@ This research demonstrates expertise in:
 
 ---
 
-## 📚 References
+## References
 
 1. Reserve Bank of India, "Annual Report 2024-25: Trends in Banking Fraud," RBI Publications, 2025.
 2. Ministry of Finance, "Parliamentary Question Response on Bank Frauds," Government of India, 2025.
@@ -367,35 +200,26 @@ This research demonstrates expertise in:
 
 ---
 
-## 👤 About the Researcher
+## About the Researcher
 
 **Modepalli Yogeswarachary**  
-Research Associate | RBI Innovation Hub  
-Financial Technology & Regulatory Frameworks
+**Data Science Enthusiast | Transitioning Professional**  
+*Formerly: Senior Visa Consultant*
 
-📧 myogeswarachary@gmail.com  
-📱 +91-9676106803
-
----
-
-## 📄 Citation
-
-```bibtex
-@article{yogeswarachary2025fraud,
-  title={India's Financial Fraud Mitigation Framework: A Multi-Layered AI-Driven Approach to Banking Security},
-  author={Yogeswarachary, Modepalli},
-  institution={RBI Innovation Hub},
-  year={2025},
-  type={Research Paper}
-}
-```
+**Career Transition & Focus**
+I am currently transitioning from a career in Global Mobility and Visa Consultancy to Data Science. My background in navigating complex regulatory frameworks and high-stakes documentation has given me a unique perspective on Data Governance and Predictive Modeling.
+- **Objective**: Leveraging data-driven insights to solve complex business problems, specifically in Finance and Regulatory Tech.
+- **Core Competencies**: Statistical Analysis, Python for Data Science, Machine Learning (Regression, Classification), and Data Visualization (Tableau/Power BI).
+- **Key Interest**: Applying NLP and Predictive Analytics to automate and optimize legal/regulatory workflows.
 
 ---
 
-<p align="center">
-  <b>🔒 Securing India's Financial Future Through AI Innovation</b>
-</p>
+## 🔍 Research Methodology
 
-<p align="center">
-  <i>This research contributes to the understanding of production-scale ML deployment in financial security infrastructure.</i>
-</p>
+This framework is the result of independent research and data synthesis. The following methodology and tools were utilized to develop the multi-layered security approach:
+
+*   **Data Sourcing:** Primary research conducted via **RBI Official Websites**, National News Archives, and **RBI Annual Reports** (2023-2025).
+*   **Data Synthesis:** Utilized **Microsoft Word** and **Openclaw** to aggregate and synthesize qualitative data into a structured security framework, while maintainig the IEEE standards.
+*   **Visualization:** Designed all architectural block diagrams and flowcharts using **Draw.io** to illustrate the AI-driven mitigation layers.
+
+---
